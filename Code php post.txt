@@ -1,0 +1,73 @@
+public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+		ProgressDialog progressDialog;
+		
+		@Override
+		protected Boolean doInBackground(Void... params) {
+			try {
+				//Setup the parameters
+				ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+				nameValuePairs.add(new BasicNameValuePair("patameter name", "parameter to send"));
+				nameValuePairs.add(new BasicNameValuePair("patameter name 2", "parameter to send 2"));
+
+				//Create the HTTP request
+				HttpParams httpParameters = new BasicHttpParams();
+
+				//Setup timeouts
+				HttpConnectionParams.setConnectionTimeout(httpParameters, 15000);
+				HttpConnectionParams.setSoTimeout(httpParameters, 15000);			
+
+				HttpClient httpclient = new DefaultHttpClient(httpParameters);
+				HttpPost httppost = new HttpPost("url to php file");
+				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));        
+				HttpResponse response = httpclient.execute(httppost);
+				HttpEntity entity = response.getEntity();
+
+				String result = EntityUtils.toString(entity);
+
+				// Create a JSON object from the request response
+				JSONObject jsonObject = new JSONObject(result);
+
+				//Retrieve the data from the JSON object
+				var retreived = jsonObject.getInt("retreived data");
+				var retreived2 = jsonObject.getString("retreived data2");
+				
+				return true;
+			} catch (Exception e) {
+				Log.e("Login", "Error:", e);
+				Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+				return false;
+			}
+			
+			return false;
+		}
+
+		@Override
+	    protected void onPreExecute() {
+	        progressDialog = new ProgressDialog(MainActivity.this);
+	        progressDialog.setMessage("Loading...");
+	        progressDialog.setCancelable(false);
+	        progressDialog.show();
+	    }
+		
+		@Override
+		protected void onPostExecute(final Boolean success) {
+			mAuthTask = null;
+			showProgress(false);
+
+			if (success) {
+				Toast.makeText(getApplicationContext(), "PHP post succes!", Toast.LENGTH_SHORT).show();
+				
+				Intent i = new Intent(LoginActivity.this, MainActivity.class);
+	            startActivity(i);
+	            finish();
+			} else {
+				Toast.makeText(getApplicationContext(), "PHP post failed :(", Toast.LENGTH_LONG).show();
+			}
+		}
+
+		@Override
+		protected void onCancelled() {
+			mAuthTask = null;
+			showProgress(false);
+		}
+	}

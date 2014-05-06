@@ -1,0 +1,12 @@
+Host/IP	: teamdevit.com
+Post	: 3306
+Username: ci
+Password: CreationInc
+
+Database: ilker
+Tables	: users
+		  products
+		  likes
+		  category
+		  sub_category
+		  images
