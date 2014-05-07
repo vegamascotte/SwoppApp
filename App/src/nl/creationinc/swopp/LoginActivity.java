@@ -268,7 +268,7 @@ public class LoginActivity extends Activity {
 			if (success) {
 				finish();
 				Toast.makeText(getApplicationContext(), "Logged is as " + userUsername, Toast.LENGTH_SHORT).show();
-				saveLogin(userId, userUsername, userPhone, userEmail, "");
+				//saveLogin(userId, userUsername, userPhone, userEmail, "");
 			} else {
 				mPasswordView.setError(getString(R.string.error_incorrect_password));
 				mPasswordView.requestFocus();
