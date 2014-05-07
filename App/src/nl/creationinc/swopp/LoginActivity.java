@@ -15,7 +15,6 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -41,7 +40,7 @@ public class LoginActivity extends Activity {
 	/**
 	 * The default email to populate the email field with.
 	 */
-	public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
+	//public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
 
 	/**
 	 * Keep track of the login task to ensure we can cancel it if requested.
@@ -59,6 +58,8 @@ public class LoginActivity extends Activity {
 	private View mLoginStatusView;
 	private TextView mLoginStatusMessageView;
 
+	private AppPreferences _appPrefs;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -66,7 +67,7 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 
 		// Set up the login form.
-		mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
+		mEmail = getIntent().getStringExtra("Username");
 		mEmailView = (EditText) findViewById(R.id.email);
 		mEmailView.setText(mEmail);
 
@@ -207,6 +208,7 @@ public class LoginActivity extends Activity {
 		int userId;
 		String userUsername;
 		String userEmail;
+		String userPhone;
 		int loginSuccess;
 		
 		@Override
@@ -238,7 +240,8 @@ public class LoginActivity extends Activity {
 				//Retrieve the data from the JSON object
 				userId = jsonObject.getInt("id");
 				userUsername = jsonObject.getString("username");
-				//userEmail = jsonObject.getString("email");
+				userEmail = jsonObject.getString("email");
+				userPhone = jsonObject.getString("phone");
 				loginSuccess = jsonObject.getInt("success");
 				
 			} catch (Exception e) {
@@ -265,8 +268,7 @@ public class LoginActivity extends Activity {
 			if (success) {
 				finish();
 				Toast.makeText(getApplicationContext(), "Logged is as " + userUsername, Toast.LENGTH_SHORT).show();
-				// TODO: save user data 
-				//saveLogin(userId, userUsername, userEmail);
+				saveLogin(userId, userUsername, userPhone, userEmail, "");
 			} else {
 				mPasswordView.setError(getString(R.string.error_incorrect_password));
 				mPasswordView.requestFocus();
@@ -277,6 +279,11 @@ public class LoginActivity extends Activity {
 		protected void onCancelled() {
 			mAuthTask = null;
 			showProgress(false);
+		}
+		
+		private void saveLogin(int id, String username, String phone, String email, String imgurl) {
+			_appPrefs = new AppPreferences(getApplicationContext());
+			_appPrefs.saveUserPrefs(id, username, phone, email, imgurl);
 		}
 	}
 }

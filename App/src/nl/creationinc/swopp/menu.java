@@ -19,33 +19,51 @@ public class menu extends Activity {
     private ListView drawerListView;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     
+    AppPreferences _appPrefs;
+    int user_id;
+	String username;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 		
-		String[] items = {
-		        "Piet",
-		        "About"
-		    };
-		drawerListViewItems = items;
-        drawerListView = (ListView) findViewById(R.id.left_drawer);
-        drawerListView.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.drawer_listview_item, drawerListViewItems));
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(
-                this,                  /* host Activity */
-                drawerLayout,         /* DrawerLayout object */
-                R.drawable.ic_drawer,  /* nav drawer icon to replace 'Up' caret */
-                R.string.drawer_open,  /* "open drawer" description */
-                R.string.drawer_close  /* "close drawer" description */
-                );
-        drawerLayout.setDrawerListener(actionBarDrawerToggle);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        drawerListView.setOnItemClickListener(new DrawerItemClickListener());
-        
+		// Check if user is logged in
+		_appPrefs = new AppPreferences(getApplicationContext());
+		String userName = _appPrefs.getUserName();
+	   
+		if(userName == null) {
+			Intent i = new Intent(menu.this, LoginActivity.class);
+            startActivity(i);
+            finish();
+            return;
+		} else {
+			username = userName;
+			user_id = _appPrefs.getUserId();
+			String[] items = {
+			        username,
+			        "About"
+			    };
+			drawerListViewItems = items;
+		
+			setContentView(R.layout.activity_main);
+			
+	        drawerListView = (ListView) findViewById(R.id.left_drawer);
+	        drawerListView.setAdapter(new ArrayAdapter<String>(this,
+	                R.layout.drawer_listview_item, drawerListViewItems));
+	        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+	        actionBarDrawerToggle = new ActionBarDrawerToggle(
+	                this,                  /* host Activity */
+	                drawerLayout,         /* DrawerLayout object */
+	                R.drawable.ic_drawer,  /* nav drawer icon to replace 'Up' caret */
+	                R.string.drawer_open,  /* "open drawer" description */
+	                R.string.drawer_close  /* "close drawer" description */
+	                );
+	        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+	        getActionBar().setDisplayHomeAsUpEnabled(true);
+	        drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+	        drawerListView.setOnItemClickListener(new DrawerItemClickListener());
+		}
+		
   		findViewById(R.id.kleding).setOnClickListener(new View.OnClickListener() {
 			
 			@Override
