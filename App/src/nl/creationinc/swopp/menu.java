@@ -1,23 +1,32 @@
 package nl.creationinc.swopp;
 
-import nl.creationinc.swopp.R;
-import nl.creationinc.swopp.menu;
 import android.app.Activity;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 public class menu extends Activity {
 
+	private String[] drawerListViewItems;
+    private DrawerLayout drawerLayout;
+    private ListView drawerListView;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    
+    AppPreferences _appPrefs;
+    int user_id;
+	String username;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fragment_main);
 		
-<<<<<<< HEAD
 		// Check if user is logged in
 		_appPrefs = new AppPreferences(getApplicationContext());
 		String userName = _appPrefs.getUserName();
@@ -56,13 +65,6 @@ public class menu extends Activity {
 		}
 		
   		findViewById(R.id.kleding).setOnClickListener(new View.OnClickListener() {
-=======
-		//Button references
-		Button wal1 = (Button) findViewById(R.id.kleding);
-		Button wal2 = (Button) findViewById(R.id.sieraden);
-		Button wal3 = (Button) findViewById(R.id.accessoires);
-		wal1.setOnClickListener(new View.OnClickListener() {
->>>>>>> origin/Design
 			
 			@Override
 			public void onClick(View v) {
@@ -70,7 +72,7 @@ public class menu extends Activity {
 				startActivity(new Intent ("nl.creationinc.swopp.KLEDING"));
 			}
 		});
-		wal2.setOnClickListener(new View.OnClickListener() {
+  		findViewById(R.id.sieraden).setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -78,7 +80,7 @@ public class menu extends Activity {
 				startActivity(new Intent ("nl.creationinc.swopp.SIERADEN"));
 			}
 		});
-		wal3.setOnClickListener(new View.OnClickListener() {
+  		findViewById(R.id.accessoires).setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -86,7 +88,36 @@ public class menu extends Activity {
 				startActivity(new Intent ("nl.creationinc.swopp.ACCESSOIRES"));
 			}
 		});
+  		findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent (menu.this, LoginActivity.class));
+			}
+		});
 	}
+	
+	private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @SuppressWarnings("rawtypes")
+		@Override
+        public void onItemClick(AdapterView parent, View view, int position, long id) {
+        	switch (position) {
+		    	case 0:
+		    		/*Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
+		    		profile.putExtra("userid", user_id);
+					startActivity(profile);*/
+		    		Toast.makeText(getApplicationContext(), "Profile", Toast.LENGTH_LONG).show();
+					break;
+		    	case 1:
+		    		/*Intent about = new Intent(MainActivity.this, AboutActivity.class);
+					startActivity(about);*/
+		    		Toast.makeText(getApplicationContext(), "About", Toast.LENGTH_LONG).show();
+		    		break;
+        	}
+        }
+    }
+	
 	@Override
 	protected void onPause() {
 		// TODO Auto-generated method stub

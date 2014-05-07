@@ -1,16 +1,10 @@
 package nl.creationinc.swopp;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -23,7 +17,7 @@ public class MainActivity extends ActionBarActivity {
 			public void run(){
 				try{
 					sleep(2000);
-					Intent menuIntent = new Intent("nl.creationinc.swopp.MENU");
+					Intent menuIntent = new Intent(MainActivity.this, menu.class);
 					startActivity(menuIntent);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
@@ -35,11 +29,6 @@ public class MainActivity extends ActionBarActivity {
 			}
 		};
 		logoTimer.start();
-		
-		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
 	}
 
 	@Override
@@ -60,23 +49,6 @@ public class MainActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.intro, container,
-					false);
-			return rootView;
-		}
 	}
 
 }

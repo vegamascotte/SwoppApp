@@ -5,13 +5,10 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="19" />
-<<<<<<< HEAD
 
     <uses-permission android:name="android.permission.INTERNET" />
-=======
->>>>>>> origin/Design
 
     <application
         android:allowBackup="true"
@@ -54,7 +51,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-                <activity
+        <activity
             android:name="nl.creationinc.swopp.Accessoires"
             android:label="@string/app_name" >
             <intent-filter>
@@ -63,7 +60,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity
             android:name="nl.creationinc.swopp.LoginActivity"
             android:label="@string/title_activity_login"
@@ -73,8 +69,6 @@
             android:name="nl.creationinc.swopp.RegisterActivity"
             android:label="@string/title_activity_register" >
         </activity>
-=======
->>>>>>> origin/Design
     </application>
 
 </manifest>
