@@ -28,7 +28,7 @@ public class menu extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		// Check if user is logged in
-		_appPrefs = new AppPreferences(getApplicationContext());
+		/*_appPrefs = new AppPreferences(getApplicationContext());
 		String userName = _appPrefs.getUserName();
 	   
 		if(userName == null) {
@@ -42,7 +42,12 @@ public class menu extends Activity {
 			String[] items = {
 			        username,
 			        "About"
-			    };
+			    };*/
+		String[] items = {
+		        "User",
+		        "About"
+		    };
+		
 			drawerListViewItems = items;
 		
 			setContentView(R.layout.activity_main);
@@ -62,7 +67,7 @@ public class menu extends Activity {
 	        getActionBar().setDisplayHomeAsUpEnabled(true);
 	        drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 	        drawerListView.setOnItemClickListener(new DrawerItemClickListener());
-		}
+		//}
 		
   		findViewById(R.id.kleding).setOnClickListener(new View.OnClickListener() {
 			
