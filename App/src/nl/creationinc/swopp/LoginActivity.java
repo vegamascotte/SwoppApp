@@ -19,6 +19,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -126,23 +127,23 @@ public class LoginActivity extends Activity {
 		boolean cancel = false;
 		View focusView = null;
 
+		// Check for a valid email address.
+		if (TextUtils.isEmpty(mEmail)) {
+			mEmailView.setError(getString(R.string.error_field_required));
+			focusView = mEmailView;
+			cancel = true;
+		} /*else if (!mEmail.contains("@") || !mEmail.contains(".")) {
+			mEmailView.setError(getString(R.string.error_invalid_email));
+			focusView = mEmailView;
+			cancel = true;
+		}*/
+		
 		// Check for a valid password.
 		if (TextUtils.isEmpty(mPassword)) {
 			mPasswordView.setError(getString(R.string.error_field_required));
 			focusView = mPasswordView;
 			cancel = true;
 		}
-
-		// Check for a valid email address.
-		/*if (TextUtils.isEmpty(mEmail)) {
-			mEmailView.setError(getString(R.string.error_field_required));
-			focusView = mEmailView;
-			cancel = true;
-		} else if (!mEmail.contains("@") || !mEmail.contains(".")) {
-			mEmailView.setError(getString(R.string.error_invalid_email));
-			focusView = mEmailView;
-			cancel = true;
-		}*/
 
 		if (cancel) {
 			// There was an error; don't attempt login and focus the first
@@ -245,7 +246,7 @@ public class LoginActivity extends Activity {
 				loginSuccess = jsonObject.getInt("success");
 				
 			} catch (Exception e) {
-				Log.e("ClientServerDemo", "Error:", e);
+				Log.e("Login", "Error:", e);
 				Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 				return false;
 			}
@@ -266,11 +267,15 @@ public class LoginActivity extends Activity {
 			showProgress(false);
 
 			if (success) {
+				_appPrefs = new AppPreferences(getApplicationContext());
+				_appPrefs.saveUserPrefs(userId, userUsername, userPhone, userEmail, "");
+				
+				Intent i = new Intent(LoginActivity.this, MainActivity.class);
+	            startActivity(i);
+	            Toast.makeText(getApplicationContext(), "Logged is as " + userUsername, Toast.LENGTH_SHORT).show();
 				finish();
-				Toast.makeText(getApplicationContext(), "Logged is as " + userUsername, Toast.LENGTH_SHORT).show();
-				//saveLogin(userId, userUsername, userPhone, userEmail, "");
 			} else {
-				mPasswordView.setError(getString(R.string.error_incorrect_password));
+				mPasswordView.setError(getString(R.string.error_incorrect_username_password));
 				mPasswordView.requestFocus();
 			}
 		}
@@ -279,11 +284,6 @@ public class LoginActivity extends Activity {
 		protected void onCancelled() {
 			mAuthTask = null;
 			showProgress(false);
-		}
-		
-		private void saveLogin(int id, String username, String phone, String email, String imgurl) {
-			_appPrefs = new AppPreferences(getApplicationContext());
-			_appPrefs.saveUserPrefs(id, username, phone, email, imgurl);
 		}
 	}
 }

@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}" >
+
+    <!-- Thumbnail image -->
+
+    <LinearLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="10dip"
+        android:background="@drawable/image_bg" >
+
+        <ImageView
+            android:id="@+id/ivProfilePicture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.85"
+            android:clickable="true"
+            android:src="@drawable/placeholder" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:paddingLeft="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="John Smith"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/tvUsername2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0634567891"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/thumbnail" >
+		
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="A button" />
+
+        <Button
+            android:id="@+id/bt2"
+            android:layout_width="0dp"
+       		android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Another button" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btMyProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LinearButtons"
+        android:layout_margin="10dp"
+        android:text="@string/my_products" />
+
+</RelativeLayout>

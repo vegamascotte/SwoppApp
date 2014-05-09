@@ -3,8 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    tools:context=".MainActivity" >
+    android:layout_height="match_parent" >
 
 	<LinearLayout 
 	    android:layout_width="match_parent"
@@ -19,19 +18,17 @@
 		<Button android:id="@+id/kleding"
 	    	android:layout_width="match_parent"
 	       	android:layout_height="wrap_content"
-	       	android:text="Kleding" />
+	       	android:text="@string/kleding" />
+		
 	   <Button android:id="@+id/sieraden"
 	      	android:layout_width="match_parent"
 	       	android:layout_height="wrap_content" 
-	       	android:text="Sieraden" />
+	       	android:text="@string/sieraden" />
+	   
 	   <Button android:id="@+id/accessoires"
 	       	android:layout_width="match_parent"
 	       	android:layout_height="wrap_content"
-	       	android:text="Accessoires" />
-	   <Button android:id="@+id/login"
-	       	android:layout_width="match_parent"
-	       	android:layout_height="wrap_content"
-	       	android:text="Login" />
+	       	android:text="@string/accessoires" />
 	</LinearLayout>
 	
 	<!-- The navigation drawer -->
@@ -40,8 +37,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:choiceMode="singleChoice"
-        android:divider="#3B5998"
-        android:dividerHeight="1dp"
-        android:background="#333" />
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="#111" />
     
 </android.support.v4.widget.DrawerLayout>

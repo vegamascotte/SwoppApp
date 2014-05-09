@@ -16,8 +16,9 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="nl.creationinc.swopp.MainActivity"
-            android:label="@string/app_name" >
+            android:name="nl.creationinc.swopp.SplashScreen"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,49 +26,51 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="nl.creationinc.swopp.menu"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="nl.creationinc.swopp.MENU" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            android:name="nl.creationinc.swopp.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="nl.creationinc.swopp.Kleding"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="nl.creationinc.swopp.KLEDING" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            android:label="@string/app_name"
+            android:parentActivityName="nl.creationinc.swopp.MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="nl.creationinc.swopp.MainActivity" />
         </activity>
         <activity
             android:name="nl.creationinc.swopp.Sieraden"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="nl.creationinc.swopp.SIERADEN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            android:label="@string/app_name"
+            android:parentActivityName="nl.creationinc.swopp.MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="nl.creationinc.swopp.MainActivity" />
         </activity>
         <activity
             android:name="nl.creationinc.swopp.Accessoires"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="nl.creationinc.swopp.ACCESSOIRES" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            android:label="@string/app_name"
+            android:parentActivityName="nl.creationinc.swopp.MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="nl.creationinc.swopp.MainActivity" />
         </activity>
         <activity
             android:name="nl.creationinc.swopp.LoginActivity"
             android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
             android:name="nl.creationinc.swopp.RegisterActivity"
-            android:label="@string/title_activity_register" >
+            android:label="@string/title_activity_register"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="nl.creationinc.swopp.ProfileActivity"
+            android:label="@string/title_activity_profile" >
         </activity>
     </application>
 
