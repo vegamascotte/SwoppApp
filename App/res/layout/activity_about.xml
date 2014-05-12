@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="215dp"
+        android:layout_height="208dp"
+        android:layout_gravity="center"
+        android:src="@drawable/tlogo" android:contentDescription="@string/todo"
+        android:tag="http://www.creationinc.nl"
+    	android:onClick="openBrowser"/>
+
+<ScrollView 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/TextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center|left"
+        android:paddingTop="10dp"
+        android:text="@string/Versie"
+        android:textSize="18sp"
+        android:typeface="serif" />
+	<TextView
+        android:id="@+id/TextView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center|left"
+        android:text="@string/Feedback"
+        android:textSize="16sp"
+        android:typeface="serif" />
+
+	<TextView
+	    android:id="@+id/TextView4"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:ems="10"
+	    android:gravity="center|left"
+	    android:paddingTop="10dp"
+	    android:text="@string/Android"
+	    android:textSize="16sp"
+	    android:typeface="serif" />
+	<TextView
+	    android:id="@+id/TextView5"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:ems="10"
+	    android:gravity="center|left"
+	    android:paddingTop="10dp"
+	    android:paddingBottom="10dp"
+	    android:text="@string/Team"
+	    android:textSize="16sp"
+	    android:typeface="serif" />
+
+	</LinearLayout>
+</ScrollView>
+</LinearLayout>

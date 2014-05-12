@@ -14,5 +14,13 @@
     <string name="action_log_out">Log out</string>
     <string name="title_activity_profile">Profile</string>
     <string name="my_products">My products</string>
+    <string name="title_activity_about">About</string>
+    <string name="todo">TODO</string>
+    <string name="Creation_Inc.">Creation Inc.</string>
+    <string name="Versie"><b>Version:</b>0.0.38</string>
+    <string name="Feedback"><b>Feedback:</b>\n\nProblems with the app or suggestions for further development are preferred to be 
+        send through our contact form on our website. This can be done by tapping the Creation Inc. logo on top of this page.</string>
+    <string name="Android"><b>Android:</b>\n\nThis application will only work on an Android phone that is Android 3.0 "Honeycomb" or higher.</string>
+ 	<string name="Team"><b>Team:</b>\n\nThis application was created by the following people, Rudy, Ilker, Frank, Patrick and Nico.</string>
 
 </resources>

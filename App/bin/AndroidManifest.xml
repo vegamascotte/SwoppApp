@@ -72,6 +72,14 @@
             android:name="nl.creationinc.swopp.ProfileActivity"
             android:label="@string/title_activity_profile" >
         </activity>
+        <activity
+            android:name="nl.creationinc.swopp.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName="nl.creationinc.swopp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="nl.creationinc.swopp.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

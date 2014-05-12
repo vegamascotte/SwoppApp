@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
 	private String username;
 	
 	@Override
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -153,9 +155,9 @@ public class MainActivity extends ActionBarActivity {
 		    		//Toast.makeText(getApplicationContext(), "Profile", Toast.LENGTH_LONG).show();
 					break;
 		    	case 1:
-		    		/*Intent about = new Intent(MainActivity.this, AboutActivity.class);
-					startActivity(about);*/
-		    		Toast.makeText(getApplicationContext(), "About", Toast.LENGTH_LONG).show();
+		    		Intent about = new Intent(MainActivity.this, AboutActivity.class);
+					startActivity(about);
+		    		//Toast.makeText(getApplicationContext(), "About", Toast.LENGTH_LONG).show();
 		    		break;
         	}
         }
