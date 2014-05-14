@@ -11,7 +11,7 @@
 	    tools:context="nl.creation.fitwall.MainActivity$PlaceholderFragment"
 	    android:orientation="vertical">
 	    
-		<Button android:id="@+id/kleding"
+		<Button android:id="@+id/clothing"
 	    	android:layout_width="match_parent"
 	       	android:layout_height="wrap_content"
 	       	android:text="@string/kleding" />

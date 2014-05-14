@@ -1,5 +1,9 @@
 package nl.creationinc.swopp2;
 
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.PushService;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -30,6 +34,13 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		//database connection
+		Parse.initialize(this, "MAqOnM2QUws3xLjyNsTtxxXchOLW2yCEnZlZmOcO", "GAyWjnwHSJ1rjtbfiaWTFVpiLbxiJCVhFuPa9GFw");
+        ParseAnalytics.trackAppOpened(getIntent());
+        //PushService.setDefaultPushCallback(this, MainActivity.class);
+        
+        
+        
 		String[] items = {
 	        "User",
 	        "About"
@@ -69,10 +80,10 @@ public class MainActivity extends Activity {
         //drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         mDrawerListView.setOnItemClickListener(new DrawerItemClickListener());
         
-        findViewById(R.id.kleding).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.clothing).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//startActivity(new Intent (MainActivity.this, Kleding.class));
+				startActivity(new Intent (MainActivity.this, Clothing.class));
 			}
 		});
   		findViewById(R.id.sieraden).setOnClickListener(new View.OnClickListener() {
