@@ -3,5 +3,10 @@
 
     <string name="app_name">Swopp2</string>
     <string name="hello_world">Hello world!</string>
-
+	<string name="drawer_open">Menu</string>
+    <string name="drawer_close">Swopp</string>
+    <string name="kleding">Kleding</string>
+    <string name="sieraden">Sieraden</string>
+    <string name="accessoires">Accessoires</string>
+    
 </resources>
