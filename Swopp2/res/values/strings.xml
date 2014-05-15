@@ -10,5 +10,6 @@
     <string name="accessoires">Accessoires</string>
     <string name="title_activity_register">Register</string>
     <string name="log_out">Log out</string>
+    <string name="title_activity_clothing">Clothing</string>
 
 </resources>

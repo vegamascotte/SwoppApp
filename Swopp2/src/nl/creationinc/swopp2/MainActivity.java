@@ -99,7 +99,7 @@ public class MainActivity extends Activity {
         findViewById(R.id.kleding).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//startActivity(new Intent (MainActivity.this, Kleding.class));
+				startActivity(new Intent (MainActivity.this, Clothing.class));
 			}
 		});
   		findViewById(R.id.sieraden).setOnClickListener(new View.OnClickListener() {
