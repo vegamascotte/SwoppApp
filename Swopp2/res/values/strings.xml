@@ -5,11 +5,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="drawer_open">Menu</string>
     <string name="drawer_close">Swopp</string>
-    <string name="kleding">Kleding</string>
+    <string name="kleding">Clothing</string>
     <string name="sieraden">Sieraden</string>
     <string name="accessoires">Accessoires</string>
-    <string name="title_activity_register">Register</string>
-    <string name="log_out">Log out</string>
     <string name="title_activity_clothing">Clothing</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
