@@ -192,6 +192,10 @@ public class LoginActivity extends Activity {
 				    } else {
 				    	loggedIn = false;
 				    }
+				    mAuthTask = null;
+					showProgress(false);
+					
+				    loginCheck();
 				}
 			});
 			
@@ -200,10 +204,10 @@ public class LoginActivity extends Activity {
 		
 		@Override
 		protected void onPostExecute(final Boolean success) {
-			mAuthTask = null;
-			showProgress(false);
+			//mAuthTask = null;
+			//showProgress(false);
 
-			loginCheck();
+			//loginCheck();
 			/*if (loggedIn) {
 				Intent i = new Intent(LoginActivity.this, MainActivity.class);
 	            startActivity(i);
@@ -225,10 +229,17 @@ public class LoginActivity extends Activity {
 	
 	private void loginCheck(){
 		if (loggedIn) {
-			Intent i = new Intent(LoginActivity.this, MainActivity.class);
+			/*Intent i = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(i);
             Toast.makeText(getApplicationContext(), "Logged in", Toast.LENGTH_SHORT).show();
-			finish();
+			finish();*/
+			
+			Toast.makeText(getApplicationContext(), "Logged in", Toast.LENGTH_SHORT).show();
+			
+			Intent i = getBaseContext().getPackageManager()
+		             .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(i);
 		} else {
 			Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_LONG).show();
 	    	mPasswordView.setError("Wrong username and/or password");
