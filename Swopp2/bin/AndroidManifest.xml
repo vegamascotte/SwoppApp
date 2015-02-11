@@ -23,6 +23,7 @@
     <uses-permission android:name="nl.creationinc.swopp2.permission.C2D_MESSAGE" />
 
     <application
+        android:name="nl.creationinc.swopp2.BaseApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -73,6 +74,16 @@
         <activity
             android:name="nl.creationinc.swopp2.Clothing"
             android:label="@string/title_activity_clothing" >
+        </activity>
+        
+        <activity 
+            android:name="nl.creationinc.swopp2.AccountActivity"
+            android:label="@string/title_activity_account" >
+        </activity>
+        
+        <activity
+            android:name="nl.creationinc.swopp2.OptionsActivity"
+            android:label="@string/title_activity_options" >
         </activity>
         
     </application>

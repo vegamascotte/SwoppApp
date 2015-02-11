@@ -3,23 +3,25 @@ package nl.creationinc.swopp2;
 import java.io.InputStream;
 import java.net.URL;
 
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-
-import android.app.DownloadManager.Query;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
-public class SetDrawable extends AsyncTask<String, Void, Drawable>
+import com.parse.ParseObject;
+
+public class SetDrawable extends AsyncTask<Object, Void, Drawable>
 {
 	@Override
-	protected Drawable doInBackground(String... params) {
-		try {
-			InputStream is = (InputStream) new URL(params[0]).getContent();
-			return Drawable.createFromStream(is, params[1]);
-		}
-		catch (Exception e) {
+	protected Drawable doInBackground(Object... params)
+	{
+		try
+		{
+			ParseObject obj = (ParseObject) params[0];
+			String url = obj.getParseFile("image").getUrl();
+			String className = obj.getClassName();
+			InputStream is = (InputStream) new URL(url).getContent();
+			return Drawable.createFromStream(is, className);
+		} catch (Exception e)
+		{
 			return null;
 		}
 	}

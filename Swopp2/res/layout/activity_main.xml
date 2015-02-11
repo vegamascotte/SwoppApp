@@ -13,17 +13,17 @@
 		<Button android:id="@+id/kleding"
 	    	android:layout_width="match_parent"
 	       	android:layout_height="wrap_content"
-	       	android:text="@string/kleding" />
+	       	android:text="@string/btn_kleding" />
 		
 	   <Button android:id="@+id/sieraden"
 	      	android:layout_width="match_parent"
 	       	android:layout_height="wrap_content" 
-	       	android:text="@string/sieraden" />
+	       	android:text="@string/btn_sieraden" />
 	   
 	   <Button android:id="@+id/accessoires"
 	       	android:layout_width="match_parent"
 	       	android:layout_height="wrap_content"
-	       	android:text="@string/accessoires" />
+	       	android:text="@string/btn_accessoires" />
 	</LinearLayout>
 	
 	<!-- The navigation drawer -->

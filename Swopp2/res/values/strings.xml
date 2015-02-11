@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="user_name">Username</string>
     <string name="app_name">Swopp2</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="avatar">Avatar</string>
     <string name="drawer_open">Menu</string>
     <string name="drawer_close">Swopp</string>
-    <string name="kleding">Kleding</string>
-    <string name="sieraden">Sieraden</string>
-    <string name="accessoires">Accessoires</string>
-    <string name="title_activity_register">Register</string>
+    <string name="product_name">Name Product</string>
+    <string name="like_btn">Like btn image</string>
+    <string name="dislike_btn">Dislike btn image</string>
+    <string name="likes">Likes: 0</string>
     <string name="log_out">Log out</string>
+    <string name="about_me">About me</string>
+    <string name="latest_swops">Latest swops</string>
+    
+    <string name="btn_kleding">Kleding</string>
+    <string name="btn_sieraden">Sieraden</string>
+    <string name="btn_accessoires">Accessoires</string>
+    <string name="btn_changeAvatar">Set Avatar</string>
+    <string name="btn_next">Next</string>
+    
+    <string name="title_activity_register">Register</string>
     <string name="title_activity_clothing">Clothing</string>
     <string name="title_activity_splash">Splash</string>
+    <string name="title_activity_account">Account</string>
+    <string name="title_activity_options">Options</string>
+    
+    <string name="hint_eMail">E-Mail</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_description">Description</string>
 
 </resources>
